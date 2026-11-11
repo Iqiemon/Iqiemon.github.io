@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iqiemon — Full-stack &amp; Automation Developer</title>
+<meta name="description" content="Portfolio of Iqiemon: Telegram bots, e-commerce storefronts, reseller back-offices and an AI paper-trading research harness.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0f12; --panel:#15171c; --line:#262932; --text:#e9e7e2; --muted:#9a9ca6;
+  --accent:#f0a93b; --accent-ink:#1a1204; --ok:#6fd0a0;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+:root[data-theme="light"]{
+  --bg:#f6f3ec; --panel:#fffdf8; --line:#ddd8cc; --text:#1b1c20; --muted:#666873;
+  --accent:#b86e00; --accent-ink:#fff; --ok:#16744a;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f6f3ec; --panel:#fffdf8; --line:#ddd8cc; --text:#1b1c20; --muted:#666873;
+    --accent:#b86e00; --accent-ink:#fff; --ok:#16744a;
+  }
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:var(--mono);font-size:14px;text-decoration:none;color:var(--accent)}
+nav ul{display:flex;gap:22px;list-style:none;font-size:14px;color:var(--muted)}
+nav a{text-decoration:none}nav a:hover{color:var(--text)}
+@media(max-width:560px){nav ul li:nth-child(n+3){display:none}}
+
+.hero{padding:96px 0 72px}
+.eyebrow{font:500 13px var(--mono);color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+h1{font:700 clamp(40px,7vw,76px)/1.02 var(--serif);letter-spacing:-.02em;margin:18px 0 22px;max-width:14ch}
+h1 em{font-style:italic;color:var(--accent);font-weight:500}
+.lede{font-size:19px;color:var(--muted);max-width:56ch}
+.cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{transform:translateY(-1px)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:56px}
+.stats div{background:var(--panel);padding:20px}
+.stats b{display:block;font:700 30px var(--serif)}
+.stats span{font-size:13px;color:var(--muted)}
+
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font:700 clamp(28px,4vw,38px)/1.15 var(--serif);margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:36px;max-width:60ch}
+
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.card.flag{grid-column:1/-1}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.tag{font:500 12px var(--mono);color:var(--muted)}
+.badge{font:500 11px var(--mono);padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--ok)}
+.badge.priv{color:var(--muted)}
+.card h3{font:700 23px/1.2 var(--serif)}
+.card p{color:var(--muted);font-size:15px}
+.note{font-size:13px!important;font-style:italic}
+.card ul{padding-left:18px;color:var(--muted);font-size:15px}
+.card li{margin:3px 0}
+.card li::marker{color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.chips span{font:400 12px var(--mono);padding:3px 9px;border-radius:6px;background:color-mix(in srgb,var(--accent) 11%,transparent);color:var(--accent)}
+.shots{display:grid;gap:10px;grid-template-columns:1fr}
+.shots.three{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.shots.three img{aspect-ratio:16/10;object-fit:cover;object-position:top}
+.shots img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line);cursor:zoom-in}
+.pipe{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font:400 12px var(--mono)}
+.pipe b{font-weight:500;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+.pipe i{color:var(--accent);font-style:normal}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:20px;cursor:zoom-out}
+.lb.on{display:flex}.lb img{max-width:100%;max-height:100%;border-radius:8px}
+.live:hover{text-decoration:underline}
+
+.arch{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;overflow-x:auto}
+.arch svg{min-width:640px;width:100%;height:auto;display:block}
+.arch text{font-family:var(--mono);font-size:12px;fill:var(--text)}
+.arch .m{fill:var(--muted)}
+.arch rect{fill:var(--bg);stroke:var(--line)}
+.arch rect.hl{stroke:var(--accent)}
+.arch path{stroke:var(--accent);fill:none;stroke-width:1.5}
+.arch .ah{fill:var(--accent);stroke:none}
+
+.skills{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.skills h4{font:500 13px var(--mono);color:var(--accent);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+.skills p{color:var(--muted);font-size:15px}
+.contact{text-align:center}
+.contact h2{margin-bottom:14px}
+.contact .cta{justify-content:center}
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top">~/iqiemon</a>
+  <ul><li><a href="#work">Work</a></li><li><a href="#system">System</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul>
+</div></nav>
+
+<main id="top">
+<header class="hero"><div class="wrap">
+  <p class="eyebrow">Full-stack &amp; automation developer</p>
+  <h1>I build the <em>machinery</em> behind online shops.</h1>
+  <p class="lede">Telegram bots, storefronts, reseller back-offices and an AI paper-trading research harness. Real money-handling systems, running on real servers, built end to end.</p>
+  <div class="cta">
+    <a class="btn primary" href="#work">See the work</a>
+    <a class="btn" href="https://github.com/Iqiemon" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <div class="stats">
+    <div><b>9</b><span>projects and tools built</span></div>
+    <div><b>4 yrs</b><span>building since 2022</span></div>
+    <div><b>3</b><span>web storefronts built</span></div>
+    <div><b>Py · TS</b><span>Python and TypeScript core</span></div>
+  </div>
+</div></header>
+
+<section id="work"><div class="wrap">
+  <h2>Selected work</h2>
+  <p class="sub">Source is private because these handle customer orders and payments. I'm happy to walk through the code and architecture in an interview.</p>
+
+  <div class="grid">
+    <article class="card flag reveal">
+      <div class="top"><span class="tag">Telegram bot · API · queue · 2024 → now</span><span class="badge priv">private</span></div>
+      <h3>Lucia Reseller Bot</h3>
+      <p>A game top-up reselling platform driven from Telegram, with a Flask API behind it so other front-ends (like the Lucia storefront below) can plug in.</p>
+      <ul>
+        <li>Modular handlers for orders, balances, rates and admin, backed by MySQL.</li>
+        <li>Redis/RQ workers and scheduler for background and delayed jobs, run under supervisor with auto-restart.</li>
+        <li>Money handled with exact <code>Decimal</code> arithmetic everywhere to avoid float rounding errors in charges and refunds.</li>
+        <li>Documented REST API with a Postman collection.</li>
+        <li>A toolbox of 40+ ops and audit scripts that check balance consistency, double deductions and unreversed refunds, so money mismatches get caught.</li>
+      </ul>
+      <div class="chips"><span>Python</span><span>Flask</span><span>Redis · RQ</span><span>MySQL</span><span>Supervisor</span><span>uWSGI</span><span>pytest</span></div>
+    </article>
+
+    <article class="card flag reveal">
+      <div class="top"><span class="tag">Internal tool · vanilla JS · 2025</span><span class="badge priv">private</span></div>
+      <h3>Reseller Tools Dashboard</h3>
+      <p>A back-office web app for running a top-up reseller business: price lists, order tracking, player-ID checks, top-ups, invoices and sales analytics, all in one place.</p>
+      <div class="shots three"><img src="img/tools-price.jpg" alt="Reseller dashboard price list tab"><img src="img/tools-topup.jpg" alt="Reseller dashboard top-up tab"><img src="img/tools-analytics.jpg" alt="Reseller dashboard sales analytics tab"></div>
+      <ul>
+        <li>Seven working tabs: Price, Track, Check, Top-up (normal and ultra-fast modes), Invoice, Analytics and Manual Orders.</li>
+        <li>Sales analytics with period and game filters, order table and one-click Excel export.</li>
+        <li>No framework and no build step: about 15,000 lines of hand-written HTML, CSS and JavaScript against the Flask API, with the API key kept only in the browser.</li>
+      </ul>
+      <p class="note">Previews show the real UI with no live account connected, so figures read zero.</p>
+      <div class="chips"><span>JavaScript</span><span>HTML</span><span>CSS</span><span>REST API</span><span>Excel export</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="top"><span class="tag">Automation · Python · ADB</span><span class="badge priv">private</span></div>
+      <h3>Payment Queue Automation</h3>
+      <p>Python on Windows drives a wallet app inside BlueStacks over ADB to work through a queue of payment jobs, replacing a rooted-phone Tasker setup.</p>
+      <div class="pipe"><b>Claim job</b><i>→</i><b>Unlock app</b><i>→</i><b>Paste code</b><i>→</i><b>Confirm PIN</b><i>→</i><b>Report result</b></div>
+      <ul>
+        <li>Runs several emulator instances in parallel; the server claims jobs with <code>FOR UPDATE SKIP LOCKED</code> so two instances never take the same job.</li>
+        <li>Reports success or releases the job on failure, so nothing is stuck.</li>
+        <li>Also includes a Telegram alert watcher that scans a reservation widget for open slots.</li>
+      </ul>
+      <div class="chips"><span>Python</span><span>ADB</span><span>BlueStacks</span><span>REST</span><span>Telegram</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="top"><span class="tag">Automation · Android · first version</span><span class="badge priv">private</span></div>
+      <h3>Tasker Phone Automation</h3>
+      <p>The original phone-based version: a Tasker profile set that kept a spare Android device working unattended around the clock.</p>
+      <div class="pipe"><b>On boot</b><i>→</i><b>Unlock with PIN</b><i>→</i><b>Poll queue</b><i>→</i><b>Process payment</b><i>→</i><b>Reboot every 2h</b></div>
+      <ul>
+        <li>Six tasks and three profiles exported as Tasker XML: queue poller, payment processing, unlock, scheduled reboot and Syncthing launch.</li>
+        <li>Self-healing loop with a reboot flag; later replaced by the Python automation above.</li>
+      </ul>
+      <div class="chips"><span>Tasker</span><span>Android</span><span>Syncthing</span><span>Shell</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="top"><span class="tag">E-commerce · 2025 → now</span><span class="badge priv">private</span></div>
+      <h3>Lucia Top-up Website</h3>
+      <p>Storefront for in-game currency: wallet balance, player-ID validation, order tracking and an admin panel.</p>
+      <div class="shots"><img src="img/lucia-home.jpg" alt="Lucia storefront home page"><img src="img/lucia-region.jpg" alt="Lucia MLBB region checker"></div>
+      <ul>
+        <li>Order lifecycle: pending → processing → completed / failed / refunded.</li>
+        <li>Role-protected admin area, giveaways and region checker.</li>
+        <li>Talks to the Lucia reseller API with bearer-token auth.</li>
+      </ul>
+      <div class="chips"><span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Prisma</span><span>NextAuth</span><span>Tailwind</span><span>shadcn/ui</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="top"><span class="tag">E-commerce · 2026</span><span class="badge priv">private</span></div>
+      <h3>Mamaslap Top-up Web</h3>
+      <p>A second branded top-up storefront: fast Next.js front-end deployed on Vercel.</p>
+      <div class="shots"><img src="img/mamaslap-login.jpg" alt="Mamaslap TopUp sign-in screen"></div>
+      <ul>
+        <li>Branded storefront built with the same Next.js stack as Lucia.</li>
+        <li>Server-rendered pages, edge deployment, continuous delivery from Git.</li>
+      </ul>
+      <div class="chips"><span>Next.js</span><span>TypeScript</span><span>Vercel</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="top"><span class="tag">Internal tool · Flask · 2025 → 2026</span><span class="badge priv">private</span></div>
+      <h3>Mamaslap Web Panel</h3>
+      <p>Reseller dashboard that maps products across suppliers and compares prices so margins stay correct.</p>
+      <ul>
+        <li>Product mapping and multi-supplier price comparison with scheduled refresh.</li>
+        <li>Admin users, Google Sheets sync, deployed on a VPS with systemd services.</li>
+      </ul>
+      <div class="chips"><span>Python</span><span>Flask</span><span>MySQL</span><span>Tailwind</span><span>gspread</span><span>systemd</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="top"><span class="tag">AI · Python · 2026</span><span class="badge priv">private</span></div>
+      <h3>Blueprint Trader</h3>
+      <p>Paper-trading research and execution harness. An LLM proposes; deterministic rules decide. Not live-ready by design, with no claims of returns.</p>
+      <div class="pipe"><b>Market data + web search</b><i>→</i><b>LLM research</b><i>→</i><b>Rule-based score</b><i>→</i><b>Allocator</b><i>→</i><b>Risk gate</b><i>→</i><b>Paper orders</b></div>
+      <ul>
+        <li>Every 5 minutes: fundamentals and web search feed an LLM research step.</li>
+        <li>Rule-based scoring overrides the LLM signal, so decisions stay auditable.</li>
+        <li>Allocator, risk gate, durable journal/replay, 22-table schema, FastAPI dashboard, Alpaca paper broker.</li>
+      </ul>
+      <div class="chips"><span>Python</span><span>DeepSeek</span><span>Alpaca</span><span>SQLAlchemy</span><span>FastAPI</span><span>yfinance</span></div>
+    </article>
+
+    <article class="card flag reveal">
+      <div class="top"><span class="tag">Storefront · 2026</span><span class="badge priv">private</span></div>
+      <h3>Beauty Monster</h3>
+      <p>Anime-inspired streetwear storefront with featured drops, gallery, product pages, cart and checkout flow.</p>
+      <div class="shots three"><img src="img/beauty-home.jpg" alt="Beauty Monster hero"><img src="img/beauty-featured.jpg" alt="Beauty Monster featured product"><img src="img/beauty-gallery.jpg" alt="Beauty Monster collection gallery"></div>
+      <ul>
+        <li>Svelte 5 + SvelteKit with a client-side cart store and dynamic product routes.</li>
+        <li>Sitemap for SEO, deployed on Vercel.</li>
+      </ul>
+      <div class="chips"><span>SvelteKit</span><span>Svelte 5</span><span>TypeScript</span><span>Tailwind</span><span>Vercel</span></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="system"><div class="wrap">
+  <h2>How the pieces fit</h2>
+  <p class="sub">The Lucia stack: one reseller API, several front-ends, background workers for slow work.</p>
+  <div class="arch reveal">
+    <svg viewBox="0 0 760 250" role="img" aria-label="Diagram: Telegram bot and Next.js storefront both call a Flask reseller API, which writes to MySQL and enqueues jobs in Redis for workers and the scheduler.">
+      <rect x="20" y="30" width="170" height="54" rx="8"/><text x="105" y="55" text-anchor="middle">Telegram bot</text><text class="m" x="105" y="72" text-anchor="middle">python-telegram-bot</text>
+      <rect x="20" y="146" width="170" height="54" rx="8"/><text x="105" y="171" text-anchor="middle">Storefront</text><text class="m" x="105" y="188" text-anchor="middle">Next.js · NextAuth</text>
+      <rect class="hl" x="290" y="88" width="170" height="64" rx="8"/><text x="375" y="115" text-anchor="middle">Reseller API</text><text class="m" x="375" y="133" text-anchor="middle">Flask · uWSGI</text>
+      <rect x="570" y="30" width="170" height="54" rx="8"/><text x="655" y="55" text-anchor="middle">MySQL</text><text class="m" x="655" y="72" text-anchor="middle">orders · wallets</text>
+      <rect x="570" y="146" width="170" height="54" rx="8"/><text x="655" y="171" text-anchor="middle">Redis · RQ</text><text class="m" x="655" y="188" text-anchor="middle">workers + scheduler</text>
+      <path d="M190 57 C240 57 240 110 288 110"/><path class="ah" d="M288 106 l8 4 -8 4z"/>
+      <path d="M190 173 C240 173 240 130 288 130"/><path class="ah" d="M288 126 l8 4 -8 4z"/>
+      <path d="M460 110 C520 110 520 57 568 57"/><path class="ah" d="M568 53 l8 4 -8 4z"/>
+      <path d="M460 130 C520 130 520 173 568 173"/><path class="ah" d="M568 169 l8 4 -8 4z"/>
+    </svg>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>What I work with</h2>
+  <p class="sub">Whole-product thinking: schema, API, UI, deployment and the boring reliability work.</p>
+  <div class="skills reveal">
+    <div><h4>Backend</h4><p>Python, Flask, FastAPI, SQLAlchemy, MySQL, Redis queues, REST API design and documentation.</p></div>
+    <div><h4>Frontend</h4><p>Next.js, React, SvelteKit, TypeScript, Tailwind, shadcn/ui, auth and forms with validation.</p></div>
+    <div><h4>Automation &amp; AI</h4><p>Telegram bots, scheduled jobs, supplier integrations, LLM pipelines guarded by deterministic rules.</p></div>
+    <div><h4>Ops</h4><p>Vercel, VPS deployments with systemd and supervisor, Git workflow, pytest, performance tuning.</p></div>
+  </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Let's build something.</h2>
+  <p class="sub" style="margin-inline:auto">Open to freelance projects and full-time roles. Tell me what you're trying to automate or sell.</p>
+  <div class="cta">
+    <a class="btn primary" href="mailto:khai4earth@gmail.com">Email me</a>
+    <a class="btn" href="https://github.com/Iqiemon" target="_blank" rel="noopener">github.com/Iqiemon</a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© <span id="y"></span> Iqiemon · Built by hand, hosted static.</div></footer>
+<div class="lb" id="lb"><img alt=""></div>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const lb=document.getElementById('lb');document.querySelectorAll('.shots img').forEach(i=>i.addEventListener('click',()=>{lb.querySelector('img').src=i.src;lb.classList.add('on')}));lb.addEventListener('click',()=>lb.classList.remove('on'));addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
