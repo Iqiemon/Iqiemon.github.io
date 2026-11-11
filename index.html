@@ -118,7 +118,7 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
     <a class="btn" href="https://github.com/Iqiemon" target="_blank" rel="noopener">GitHub</a>
   </div>
   <div class="stats">
-    <div><b>9</b><span>projects and tools built</span></div>
+    <div><b>10</b><span>projects and tools built</span></div>
     <div><b>4 yrs</b><span>building since 2022</span></div>
     <div><b>3</b><span>web storefronts built</span></div>
     <div><b>Py · TS</b><span>Python and TypeScript core</span></div>
@@ -181,6 +181,19 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
         <li>Self-healing loop with a reboot flag; later replaced by the Python automation above.</li>
       </ul>
       <div class="chips"><span>Tasker</span><span>Android</span><span>Syncthing</span><span>Shell</span></div>
+    </article>
+
+    <article class="card reveal">
+      <div class="top"><span class="tag">Telegram bot · IMAP · 2022 → 2023</span><span class="badge priv">private</span></div>
+      <h3>Steam Guard Code Bot</h3>
+      <p>My first bots: a Telegram command that fetches a Steam Guard login code from a shared mailbox, so the code reaches the person who needs it in seconds.</p>
+      <div class="pipe"><b>/sg command</b><i>→</i><b>Read latest email (IMAP)</b><i>→</i><b>Verify sender</b><i>→</i><b>Extract code</b><i>→</i><b>Reply in chat</b></div>
+      <ul>
+        <li>Only accepts mail from Steam's address; anything else is rejected rather than relayed.</li>
+        <li>Second version adds an allowlist of authorised chats and handles several email layouts.</li>
+        <li>Small and single-purpose, about 100 to 180 lines of Python each, and still the project that taught me bots and mail parsing.</li>
+      </ul>
+      <div class="chips"><span>Python</span><span>python-telegram-bot</span><span>IMAP</span><span>Email parsing</span></div>
     </article>
 
     <article class="card reveal">
