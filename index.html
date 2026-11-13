@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Iqiemon — Full-stack &amp; Automation Developer</title>
 <meta name="description" content="Portfolio of Iqiemon: Telegram bots, e-commerce storefronts, reseller back-offices and an AI paper-trading research harness.">
-<meta name="theme-color" content="#0e0f12">
+<meta name="theme-color" content="#e7eee5">
 <meta property="og:title" content="Iqiemon — Full-stack &amp; Automation Developer">
 <meta property="og:description" content="Telegram bots, e-commerce storefronts, reseller back-offices and an AI paper-trading research harness.">
 <meta property="og:type" content="website">
@@ -13,133 +13,187 @@
 <script type="module" src="https://ui-sdk.dev/web@0.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Source+Serif+4:opsz,wght@8..60,400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0e0f12; --panel:#15171c; --line:#262932; --text:#e9e7e2; --muted:#9a9ca6;
-  --accent:#f0a93b; --accent-ink:#1a1204; --ok:#6fd0a0;
-  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --paper:#e7eee5; --panel:#f6f9f2; --ink:#10201a; --muted:#46594f; --line:#c3cfc1;
+  --accent:#2540d9; --accent-ink:#ffffff; --paid:#1f7a4d;
+  --sans:'Bricolage Grotesque',system-ui,sans-serif; --serif:'Source Serif 4',Georgia,serif; --mono:'JetBrains Mono',ui-monospace,monospace;
 }
-:root[data-theme="light"]{
-  --bg:#f6f3ec; --panel:#fffdf8; --line:#ddd8cc; --text:#1b1c20; --muted:#666873;
-  --accent:#b86e00; --accent-ink:#fff; --ok:#16744a;
+:root[data-theme="dark"]{
+  --paper:#0d1714; --panel:#14221d; --ink:#dce8e0; --muted:#9db2a7; --line:#27382f;
+  --accent:#8fa6ff; --accent-ink:#0d1714; --paid:#6fd0a0;
 }
-@media (prefers-color-scheme: light){
-  :root:not([data-theme="dark"]){
-    --bg:#f6f3ec; --panel:#fffdf8; --line:#ddd8cc; --text:#1b1c20; --muted:#666873;
-    --accent:#b86e00; --accent-ink:#fff; --ok:#16744a;
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0d1714; --panel:#14221d; --ink:#dce8e0; --muted:#9db2a7; --line:#27382f;
+    --accent:#8fa6ff; --accent-ink:#0d1714; --paid:#6fd0a0;
   }
 }
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--paper);color:var(--ink);font:18px/1.7 var(--serif);-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
-.logo{font-family:var(--mono);font-size:14px;text-decoration:none;color:var(--accent)}
-nav ul{display:flex;gap:22px;list-style:none;font-size:14px;color:var(--muted)}
-nav a{text-decoration:none}nav a:hover{color:var(--text)}
-@media(max-width:560px){nav ul{gap:14px;font-size:13px}.logo{display:none}}
-
-.hero{padding:96px 0 72px}
-.eyebrow{font:500 13px var(--mono);color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
-h1{font:700 clamp(40px,7vw,76px)/1.02 var(--serif);letter-spacing:-.02em;margin:18px 0 22px;max-width:14ch}
-h1 em{font-style:italic;color:var(--accent);font-weight:500}
-.lede{font-size:19px;color:var(--muted);max-width:56ch}
-.cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
-.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line)}
-.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.btn{transition:transform .15s}
-.btn:hover{transform:translateY(-1px)}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:56px}
-.stats div{background:var(--panel);padding:20px}
-.stats b{display:block;font:700 30px var(--serif)}
-.stats span{font-size:13px;color:var(--muted)}
-
-section{padding:64px 0;border-top:1px solid var(--line)}
-h2{font:700 clamp(28px,4vw,38px)/1.15 var(--serif);margin-bottom:8px}
-.sub{color:var(--muted);margin-bottom:36px;max-width:60ch}
-
-.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr))}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s}
-.card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.card.flag{grid-column:1/-1}
-.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.tag{font:500 12px var(--mono);color:var(--muted)}
-.badge{font:500 11px var(--mono);padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--ok)}
-.badge.priv{color:var(--muted)}
-.card h3{font:700 23px/1.2 var(--serif)}
-.card p{color:var(--muted);font-size:15px}
-.note{font-size:13px!important;font-style:italic}
-.card ul{padding-left:18px;color:var(--muted);font-size:15px}
-.card li{margin:3px 0}
-.card li::marker{color:var(--accent)}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
-.chips span{font:400 12px var(--mono);padding:3px 9px;border-radius:6px;background:color-mix(in srgb,var(--accent) 11%,transparent);color:var(--accent)}
-.shots{display:grid;gap:10px;grid-template-columns:1fr}
-.shots.three{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
-.shots.three img{aspect-ratio:16/10;object-fit:cover;object-position:top}
-.shots ui-dialog-trigger{display:block}
-.shots button{all:unset;display:block;width:100%;cursor:zoom-in;border-radius:8px}
-.shots img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
-.pipe{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font:400 12px var(--mono)}
-.pipe b{font-weight:500;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
-.pipe i{color:var(--accent);font-style:normal}
-.live:hover{text-decoration:underline}
-
-.arch{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;overflow-x:auto}
-.arch svg{min-width:640px;width:100%;height:auto;display:block}
-.arch text{font-family:var(--mono);font-size:12px;fill:var(--text)}
-.arch .m{fill:var(--muted)}
-.arch rect{fill:var(--bg);stroke:var(--line)}
-.arch rect.hl{stroke:var(--accent)}
-.arch path{stroke:var(--accent);fill:none;stroke-width:1.5}
-.arch .ah{fill:var(--accent);stroke:none}
-
-.skills{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.skills h3{font:500 13px var(--mono);color:var(--accent);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
-.skills p{color:var(--muted);font-size:15px}
-.contact{text-align:center}
-.contact h2{margin-bottom:14px}
-.contact .cta{justify-content:center}
-footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center}
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-.skip{position:absolute;left:12px;top:-60px;background:var(--accent);color:var(--accent-ink);padding:8px 14px;border-radius:8px;z-index:100;text-decoration:none;font-weight:600}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:12px;top:-60px;background:var(--accent);color:var(--accent-ink);padding:8px 14px;border-radius:6px;z-index:100;text-decoration:none;font:600 15px var(--sans)}
 .skip:focus{top:10px}
-.navr{display:flex;align-items:center;gap:18px}
+
+nav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:800 20px var(--sans);letter-spacing:-.02em;text-decoration:none}
+.navr{display:flex;align-items:center;gap:26px}
+nav ul{display:flex;gap:24px;list-style:none;font:500 15px var(--sans)}
+nav ul a{text-decoration:none;color:var(--muted)}
+nav ul a:hover{color:var(--ink)}
 ui-toggle{display:inline-block}
-.theme{all:unset;box-sizing:border-box;cursor:pointer;width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:16px;line-height:1}
-.theme:hover{color:var(--text);border-color:var(--accent)}
+.theme{all:unset;box-sizing:border-box;cursor:pointer;width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:6px;color:var(--muted);font-size:16px;line-height:1}
+.theme:hover{color:var(--ink);border-color:var(--ink)}
 .theme:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .theme::before{content:"\263E"}
 .theme[aria-pressed="true"]::before{content:"\2600"}
-.filter{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px}
-.filter>span{font:500 12px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-ui-segmented-control{position:relative;display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:10px;background:var(--panel);isolation:isolate}
-ui-segmented-control-indicator{position:absolute;z-index:-1;top:var(--segmented-control-indicator-top);left:var(--segmented-control-indicator-left);width:var(--segmented-control-indicator-width);height:var(--segmented-control-indicator-height);background:var(--accent);border-radius:7px;transition:all .2s}
-ui-segmented-control-item{display:inline-block;padding:6px 14px;border-radius:7px;font:500 13px var(--mono);color:var(--muted);cursor:pointer;user-select:none}
-ui-segmented-control-item:hover{color:var(--text)}
+@media(max-width:560px){.logo{display:none}nav ul{gap:16px;font-size:14px}.navr{gap:14px;width:100%;justify-content:space-between}}
+
+.hero{padding-block:72px 88px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:start}
+h1{font:800 clamp(40px,5.6vw,70px)/1.02 var(--sans);letter-spacing:-.035em;max-width:15ch}
+.lede{font-size:20px;color:var(--muted);max-width:50ch;margin-top:26px}
+.cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:6px;font:600 16px var(--sans);text-decoration:none;border:1.5px solid var(--ink);transition:transform .15s}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{transform:translateY(-1px)}
+.since{margin-top:28px;font-size:16px;color:var(--muted)}
+@media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr);gap:40px;padding-block:48px 56px}}
+code{font:400 .85em var(--mono)}
+
+.order{background:var(--panel);border:1.5px solid var(--ink);border-radius:6px;padding:24px;font-family:var(--sans)}
+.order h2{font:700 20px/1.2 var(--sans);margin:0 0 4px}
+.order .demo{font-size:14px;color:var(--muted);margin-bottom:20px}
+.fields{display:grid;grid-template-columns:1fr 150px;gap:14px}
+.fields label,.fields .lbl{display:block;font:600 13px var(--sans);margin-bottom:6px}
+ui-select{display:block}
+ui-select-label{display:block;font:600 13px var(--sans);margin-bottom:6px}
+ui-select-trigger{display:block}
+ui-select-trigger button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;border:1.5px solid var(--ink);border-radius:5px;background:var(--paper);font:500 15px var(--sans);cursor:pointer}
+ui-select-trigger button::after{content:"";width:7px;height:7px;border:solid var(--ink);border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-2px)}
+ui-select-trigger button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+[data-slot="select-content"]{background:var(--panel);border:1.5px solid var(--ink);border-radius:5px;padding:4px;min-width:var(--anchor-width);font:500 15px var(--sans);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+ui-select-item{display:block;padding:8px 10px;border-radius:3px;cursor:pointer}
+ui-select-item[data-highlighted]{background:var(--accent);color:var(--accent-ink)}
+ui-select-item[data-selected]{font-weight:700}
+ui-number-input{display:block}
+ui-number-input-group{display:flex;border:1.5px solid var(--ink);border-radius:5px;background:var(--paper);overflow:hidden}
+ui-number-input-control{display:block;flex:1;min-width:0}
+ui-number-input-control input{all:unset;box-sizing:border-box;width:100%;padding:10px 4px;text-align:center;font:500 15px var(--mono)}
+ui-number-input-control input:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+ui-number-input-decrement button,ui-number-input-increment button{all:unset;box-sizing:border-box;width:36px;height:100%;display:grid;place-items:center;cursor:pointer;font:600 18px var(--sans)}
+ui-number-input-decrement button:hover,ui-number-input-increment button:hover{background:var(--line)}
+ui-number-input-decrement button[disabled],ui-number-input-increment button[disabled]{opacity:.35;cursor:default}
+ui-number-input-decrement button:focus-visible,ui-number-input-increment button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 6px;padding-top:16px;border-top:1.5px dashed var(--line)}
+.total span{font:600 14px var(--sans);color:var(--muted)}
+.total b{font:500 28px var(--mono)}
+.float{font-size:13px;color:var(--muted);margin-bottom:18px}
+.float code{font:400 12.5px var(--mono)}
+ui-button{display:block}
+ui-button button{all:unset;box-sizing:border-box;width:100%;text-align:center;padding:12px;border-radius:5px;background:var(--accent);color:var(--accent-ink);font:600 16px var(--sans);cursor:pointer}
+ui-button button:hover{filter:brightness(1.08)}
+ui-button button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+ui-button button[disabled]{opacity:.55;cursor:default;filter:none}
+.steps{list-style:none;padding:0;margin:20px 0 0;border-top:1.5px dashed var(--line)}
+.steps li{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);color:var(--muted);font:500 15px var(--sans)}
+.steps li small{display:block;font:400 13px var(--sans);margin-top:1px}
+.steps li i{width:14px;height:14px;margin-top:5px;border-radius:50%;border:2px solid var(--line)}
+.steps li[data-state="active"]{color:var(--ink)}
+.steps li[data-state="active"] i{border-color:var(--accent);background:var(--accent)}
+.steps li[data-state="done"]{color:var(--ink)}
+.steps li[data-state="done"] i{border-color:var(--paid);background:var(--paid)}
+.steps li[data-state="active"] small:not(.x){display:block}
+.status{font:500 13px var(--mono);color:var(--muted);margin-top:12px;min-height:1.5em}
+
+section{padding:80px 0;border-top:1px solid var(--line)}
+h2.big{font:800 clamp(30px,4vw,44px)/1.1 var(--sans);letter-spacing:-.025em;margin-bottom:12px}
+.sub{color:var(--muted);margin-bottom:32px;max-width:58ch}
+
+.filter{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+.filter>span{font:600 14px var(--sans);color:var(--muted)}
+ui-segmented-control{position:relative;display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1.5px solid var(--ink);border-radius:6px;background:var(--panel);isolation:isolate}
+ui-segmented-control-indicator{position:absolute;z-index:-1;top:var(--segmented-control-indicator-top);left:var(--segmented-control-indicator-left);width:var(--segmented-control-indicator-width);height:var(--segmented-control-indicator-height);background:var(--accent);border-radius:4px;transition:all .2s}
+ui-segmented-control-item{display:inline-block;padding:6px 14px;border-radius:4px;font:600 14px var(--sans);color:var(--muted);cursor:pointer;user-select:none}
+ui-segmented-control-item:hover{color:var(--ink)}
 ui-segmented-control-item[data-checked]{color:var(--accent-ink)}
-.card[hidden]{display:none}
-[data-slot="dialog-backdrop"]{position:fixed;inset:0;background:rgba(0,0,0,.8);transition:opacity .2s}
+
+ui-accordion{display:block;border-top:2px solid var(--ink)}
+ui-accordion-item{display:block;border-bottom:1px solid var(--line)}
+ui-accordion-item[hidden]{display:none}
+ui-accordion-header h3{font:inherit}
+ui-accordion-trigger{display:block}
+ui-accordion-trigger button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr) 8rem 1.5rem;gap:8px 24px;align-items:baseline;padding:22px 4px;cursor:pointer}
+ui-accordion-trigger button:hover .n{color:var(--accent)}
+ui-accordion-trigger button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.n{font:700 22px/1.2 var(--sans);letter-spacing:-.015em}
+.d{color:var(--muted);font-size:17px;line-height:1.45}
+.y{font:400 14px var(--mono);color:var(--muted);text-align:right}
+ui-accordion-trigger button::after{content:"+";font:500 24px/1 var(--sans);text-align:right}
+ui-accordion-item[data-open] ui-accordion-trigger button::after{content:"\2212"}
+@media(max-width:760px){ui-accordion-trigger button{grid-template-columns:1fr auto;padding:18px 2px}.d{grid-column:1/-1;grid-row:2}.y{grid-row:1;grid-column:2;display:none}ui-accordion-trigger button::after{grid-row:1;grid-column:2}}
+ui-accordion-panel{display:block;overflow:hidden;height:var(--accordion-panel-height);transition:height .25s ease}
+ui-accordion-panel:is([data-starting-style],[data-ending-style]){height:0}
+.panel{padding:4px 4px 36px;display:grid;gap:18px;max-width:760px}
+.panel p{color:var(--ink)}
+.panel .kind{font:500 14px var(--mono);color:var(--muted)}
+.panel .note{font-size:15px;font-style:italic;color:var(--muted)}
+.panel ul{padding-left:20px}
+.panel li{margin:4px 0}
+.panel li::marker{color:var(--accent)}
+.panel .stack{font:400 14px/1.7 var(--mono);color:var(--muted)}
+.flow{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px;counter-reset:f;font:500 14px var(--sans)}
+.flow li{counter-increment:f;margin:0;padding:6px 12px;border:1.5px solid var(--ink);border-radius:5px;background:var(--panel)}
+.flow li::before{content:counter(f) ". ";color:var(--accent);font-weight:700}
+.shots{display:grid;gap:10px;grid-template-columns:1fr;max-width:none}
+.shots.three{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.shots.three img{aspect-ratio:16/10;object-fit:cover;object-position:top}
+.shots ui-dialog-trigger{display:block}
+.shots button{all:unset;display:block;width:100%;cursor:zoom-in;border-radius:6px}
+.shots button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.shots img{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--line)}
+.panel:has(.shots.three){max-width:none}
+.panel:has(.shots.three)>*:not(.shots){max-width:760px}
+
+[data-slot="dialog-backdrop"]{position:fixed;inset:0;background:rgba(5,12,9,.82);transition:opacity .2s}
 [data-slot="dialog-backdrop"]:is([data-starting-style],[data-ending-style]){opacity:0}
-[data-slot="dialog-content"]{position:fixed;inset:0;margin:auto;width:fit-content;height:fit-content;max-width:min(96vw,1200px);max-height:94vh;padding:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;gap:10px;transition:opacity .2s,scale .2s}
+[data-slot="dialog-content"]{position:fixed;inset:0;margin:auto;width:fit-content;height:fit-content;max-width:min(96vw,1200px);max-height:94vh;padding:12px;background:var(--panel);border:1.5px solid var(--ink);border-radius:8px;display:flex;flex-direction:column;gap:10px;transition:opacity .2s,scale .2s;color:var(--ink)}
 [data-slot="dialog-content"]:is([data-starting-style],[data-ending-style]){opacity:0;scale:.97}
-[data-slot="dialog-title"]{font-size:13px;color:var(--muted);padding-right:90px}
-[data-slot="dialog-content"] img{max-width:100%;max-height:calc(94vh - 90px);object-fit:contain;border-radius:8px}
-.dclose{position:absolute;top:8px;right:8px;padding:5px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:500 12px var(--mono);cursor:pointer}
-@media(prefers-reduced-motion:reduce){.btn,.card,ui-segmented-control-indicator,[data-slot^="dialog"]{transition:none}.card:hover{transform:none}}
+[data-slot="dialog-title"]{font:500 14px var(--sans);color:var(--muted);padding-right:90px}
+[data-slot="dialog-content"] img{max-width:100%;max-height:calc(94vh - 90px);object-fit:contain;border-radius:6px}
+.dclose{position:absolute;top:8px;right:8px;padding:6px 14px;border-radius:5px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);font:600 14px var(--sans);cursor:pointer}
+
+.arch{background:var(--panel);border:1.5px solid var(--ink);border-radius:6px;padding:20px;overflow-x:auto}
+.arch svg{min-width:640px;width:100%;height:auto;display:block}
+.arch text{font-family:var(--sans);font-size:14px;font-weight:600;fill:var(--ink)}
+.arch .m{fill:var(--muted);font-weight:400;font-family:var(--mono);font-size:12px}
+.arch rect{fill:var(--paper);stroke:var(--ink);stroke-width:1.5}
+.arch rect.hl{stroke:var(--accent);stroke-width:3}
+.arch path{stroke:var(--accent);fill:none;stroke-width:2}
+.arch .ah{fill:var(--accent);stroke:none}
+
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px;border-top:2px solid var(--ink)}
+.skills div{padding:22px 0;border-bottom:1px solid var(--line)}
+.skills h3{font:700 20px var(--sans);margin-bottom:6px}
+.skills p{color:var(--muted)}
+@media(max-width:700px){.skills{grid-template-columns:1fr}}
+
+.contact h2.big{max-width:16ch}
+.mail{display:inline-block;margin-top:8px;font:800 clamp(24px,5vw,48px)/1.1 var(--sans);letter-spacing:-.02em;color:var(--accent);text-underline-offset:6px;overflow-wrap:anywhere}
+.contact .cta{margin-top:28px}
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font:14px var(--sans)}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,ui-segmented-control-indicator,ui-accordion-panel,[data-slot^="dialog"]{transition:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#top">Skip to content</a>
 <nav aria-label="Primary"><div class="wrap">
-  <a class="logo" href="#top">~/iqiemon</a>
+  <a class="logo" href="#top">Iqiemon</a>
   <div class="navr">
     <ul><li><a href="#work">Work</a></li><li><a href="#system">System</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul>
     <ui-toggle id="theme"><button class="theme" aria-label="Light theme"></button></ui-toggle>
@@ -147,178 +201,231 @@ ui-segmented-control-item[data-checked]{color:var(--accent-ink)}
 </div></nav>
 
 <main id="top">
-<header class="hero"><div class="wrap">
-  <p class="eyebrow">Full-stack &amp; automation developer</p>
-  <h1>I build the <em>machinery</em> behind online shops.</h1>
-  <p class="lede">Telegram bots, storefronts, reseller back-offices and an AI paper-trading research harness. Real money-handling systems, running on real servers, built end to end.</p>
-  <div class="cta">
-    <a class="btn primary" href="#work">See the work</a>
-    <a class="btn" href="https://github.com/Iqiemon" target="_blank" rel="noopener">GitHub</a>
+<header class="wrap hero">
+  <div>
+    <h1>Shops take the orders. I build what happens next.</h1>
+    <p class="lede">Telegram bots, storefronts, reseller back-offices and a paper-trading research harness. Money-handling systems running on real servers, built end to end.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">See the work</a>
+      <a class="btn" href="https://github.com/Iqiemon" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="since">Building since 2022. Python and TypeScript at the core.</p>
   </div>
-  <div class="stats">
-    <div><b>10</b><span>projects and tools built</span></div>
-    <div><b>4 yrs</b><span>building since 2022</span></div>
-    <div><b>3</b><span>web storefronts built</span></div>
-    <div><b>Py · TS</b><span>Python and TypeScript core</span></div>
+
+  <div class="order" aria-labelledby="otitle">
+    <h2 id="otitle">Place a test order</h2>
+    <p class="demo">A small model of how my reseller systems work. Nothing is charged.</p>
+    <div class="fields">
+      <ui-select id="pkg" default-value="d172">
+        <ui-select-label>Package</ui-select-label>
+        <ui-select-trigger><button><ui-select-value></ui-select-value></button></ui-select-trigger>
+        <ui-select-content>
+          <ui-select-item value="d86">86 diamonds</ui-select-item>
+          <ui-select-item value="d172">172 diamonds</ui-select-item>
+          <ui-select-item value="d344">344 diamonds</ui-select-item>
+        </ui-select-content>
+      </ui-select>
+      <div>
+        <span class="lbl" id="qlabel">Quantity</span>
+        <ui-number-input id="qty" default-value="1" min="1" max="10">
+          <ui-number-input-group>
+            <ui-number-input-decrement><button aria-label="Decrease quantity">&minus;</button></ui-number-input-decrement>
+            <ui-number-input-control><input aria-labelledby="qlabel"></ui-number-input-control>
+            <ui-number-input-increment><button aria-label="Increase quantity">+</button></ui-number-input-increment>
+          </ui-number-input-group>
+        </ui-number-input>
+      </div>
+    </div>
+    <div class="total"><span>Total</span><b id="total">$2.75</b></div>
+    <p class="float">Totals are whole cents. In floating point, <code>0.1 + 0.2</code> is <code>0.30000000000000004</code>.</p>
+    <ui-button><button id="place">Place order</button></ui-button>
+    <ol class="steps" id="steps">
+      <li data-state=""><i></i><span>Pending<small>Order saved and the balance held.</small></span></li>
+      <li data-state=""><i></i><span>Processing<small>A worker claims the job. No two workers can take the same one.</small></span></li>
+      <li data-state=""><i></i><span>Completed<small>Delivered and the balance settled.</small></span></li>
+    </ol>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
   </div>
-</div></header>
+</header>
 
 <section id="work"><div class="wrap">
-  <h2>Selected work</h2>
-  <p class="sub">Source is private because these handle customer orders and payments. I'm happy to walk through the code and architecture in an interview.</p>
+  <h2 class="big">Work</h2>
+  <p class="sub">Source is private because these handle customer orders and payments.</p>
 
   <div class="filter">
-    <span id="flabel">Filter</span>
+    <span id="flabel">Show</span>
     <ui-segmented-control id="filter" aria-labelledby="flabel" default-value="all">
       <ui-segmented-control-indicator></ui-segmented-control-indicator>
       <ui-segmented-control-item value="all">All</ui-segmented-control-item>
-      <ui-segmented-control-item value="bots">Bots &amp; automation</ui-segmented-control-item>
+      <ui-segmented-control-item value="bots">Bots and automation</ui-segmented-control-item>
       <ui-segmented-control-item value="web">Web</ui-segmented-control-item>
       <ui-segmented-control-item value="tools">Internal tools</ui-segmented-control-item>
       <ui-segmented-control-item value="ai">AI</ui-segmented-control-item>
     </ui-segmented-control>
   </div>
 
-  <div class="grid">
-    <article class="card flag reveal" data-cat="bots tools">
-      <div class="top"><span class="tag">Telegram bot · API · queue · 2024 → now</span><span class="badge priv">private</span></div>
-      <h3>Lucia Reseller Bot</h3>
-      <p>A game top-up reselling platform driven from Telegram, with a Flask API behind it so other front-ends (like the Lucia storefront below) can plug in.</p>
-      <ul>
-        <li>Modular handlers for orders, balances, rates and admin, backed by MySQL.</li>
-        <li>Redis/RQ workers and scheduler for background and delayed jobs, run under supervisor with auto-restart.</li>
-        <li>Money handled with exact <code>Decimal</code> arithmetic everywhere to avoid float rounding errors in charges and refunds.</li>
-        <li>Documented REST API with a Postman collection.</li>
-        <li>A toolbox of 40+ ops and audit scripts that check balance consistency, double deductions and unreversed refunds, so money mismatches get caught.</li>
-      </ul>
-      <div class="chips"><span>Python</span><span>Flask</span><span>Redis · RQ</span><span>MySQL</span><span>Supervisor</span><span>uWSGI</span><span>pytest</span></div>
-    </article>
+  <ui-accordion multiple keep-mounted default-value="lucia-bot">
 
-    <article class="card flag reveal" data-cat="tools">
-      <div class="top"><span class="tag">Internal tool · vanilla JS · 2025</span><span class="badge priv">private</span></div>
-      <h3>Reseller Tools Dashboard</h3>
-      <p>A back-office web app for running a top-up reseller business: price lists, order tracking, player-ID checks, top-ups, invoices and sales analytics, all in one place.</p>
-      <div class="shots three"><img loading="lazy" decoding="async" src="img/tools-price.jpg" alt="Reseller dashboard price list tab"><img loading="lazy" decoding="async" src="img/tools-topup.jpg" alt="Reseller dashboard top-up tab"><img loading="lazy" decoding="async" src="img/tools-analytics.jpg" alt="Reseller dashboard sales analytics tab"></div>
-      <ul>
-        <li>Seven working tabs: Price, Track, Check, Top-up (normal and ultra-fast modes), Invoice, Analytics and Manual Orders.</li>
-        <li>Sales analytics with period and game filters, order table and one-click Excel export.</li>
-        <li>No framework and no build step: about 15,000 lines of hand-written HTML, CSS and JavaScript against the Flask API, with the API key kept only in the browser.</li>
-      </ul>
-      <p class="note">Previews show the real UI with no live account connected, so figures read zero.</p>
-      <div class="chips"><span>JavaScript</span><span>HTML</span><span>CSS</span><span>REST API</span><span>Excel export</span></div>
-    </article>
+    <ui-accordion-item value="lucia-bot" data-cat="bots tools">
+      <ui-accordion-header><h3><ui-accordion-trigger><button type="button"><span class="n">Lucia Reseller Bot</span><span class="d">Game top-up reselling from Telegram, with a Flask API behind it.</span><span class="y">2024 to now</span></button></ui-accordion-trigger></h3></ui-accordion-header>
+      <ui-accordion-panel><div class="panel">
+        <p class="kind">Telegram bot, API, job queue. Private.</p>
+        <p>A game top-up reselling platform driven from Telegram, with a Flask API behind it so other front-ends (like the Lucia storefront below) can plug in.</p>
+        <ul>
+          <li>Modular handlers for orders, balances, rates and admin, backed by MySQL.</li>
+          <li>Redis/RQ workers and scheduler for background and delayed jobs, run under supervisor with auto-restart.</li>
+          <li>Money handled with exact <code>Decimal</code> arithmetic everywhere to avoid float rounding errors in charges and refunds.</li>
+          <li>Documented REST API with a Postman collection.</li>
+          <li>A toolbox of 40+ ops and audit scripts that check balance consistency, double deductions and unreversed refunds, so money mismatches get caught.</li>
+        </ul>
+        <p class="stack">Python, Flask, Redis and RQ, MySQL, Supervisor, uWSGI, pytest</p>
+      </div></ui-accordion-panel>
+    </ui-accordion-item>
 
-    <article class="card reveal" data-cat="bots">
-      <div class="top"><span class="tag">Automation · Python · ADB</span><span class="badge priv">private</span></div>
-      <h3>Payment Queue Automation</h3>
-      <p>Python on Windows drives a wallet app inside BlueStacks over ADB to work through a queue of payment jobs, replacing a rooted-phone Tasker setup.</p>
-      <div class="pipe"><b>Claim job</b><i>→</i><b>Unlock app</b><i>→</i><b>Paste code</b><i>→</i><b>Confirm PIN</b><i>→</i><b>Report result</b></div>
-      <ul>
-        <li>Runs several emulator instances in parallel; the server claims jobs with <code>FOR UPDATE SKIP LOCKED</code> so two instances never take the same job.</li>
-        <li>Reports success or releases the job on failure, so nothing is stuck.</li>
-        <li>Also includes a Telegram alert watcher that scans a reservation widget for open slots.</li>
-      </ul>
-      <div class="chips"><span>Python</span><span>ADB</span><span>BlueStacks</span><span>REST</span><span>Telegram</span></div>
-    </article>
+    <ui-accordion-item value="tools-dashboard" data-cat="tools">
+      <ui-accordion-header><h3><ui-accordion-trigger><button type="button"><span class="n">Reseller Tools Dashboard</span><span class="d">A back-office for prices, orders, top-ups, invoices and sales analytics.</span><span class="y">2025</span></button></ui-accordion-trigger></h3></ui-accordion-header>
+      <ui-accordion-panel hidden><div class="panel">
+        <p class="kind">Internal tool, vanilla JavaScript. Private.</p>
+        <p>A back-office web app for running a top-up reseller business: price lists, order tracking, player-ID checks, top-ups, invoices and sales analytics, all in one place.</p>
+        <div class="shots three"><img loading="lazy" decoding="async" src="img/tools-price.jpg" alt="Reseller dashboard price list tab"><img loading="lazy" decoding="async" src="img/tools-topup.jpg" alt="Reseller dashboard top-up tab"><img loading="lazy" decoding="async" src="img/tools-analytics.jpg" alt="Reseller dashboard sales analytics tab"></div>
+        <ul>
+          <li>Seven working tabs: Price, Track, Check, Top-up (normal and ultra-fast modes), Invoice, Analytics and Manual Orders.</li>
+          <li>Sales analytics with period and game filters, order table and one-click Excel export.</li>
+          <li>No framework and no build step: about 15,000 lines of hand-written HTML, CSS and JavaScript against the Flask API, with the API key kept only in the browser.</li>
+        </ul>
+        <p class="note">Previews show the real UI with no live account connected, so figures read zero.</p>
+        <p class="stack">JavaScript, HTML, CSS, REST API, Excel export</p>
+      </div></ui-accordion-panel>
+    </ui-accordion-item>
 
-    <article class="card reveal" data-cat="bots">
-      <div class="top"><span class="tag">Automation · Android · first version</span><span class="badge priv">private</span></div>
-      <h3>Tasker Phone Automation</h3>
-      <p>The original phone-based version: a Tasker profile set that kept a spare Android device working unattended around the clock.</p>
-      <div class="pipe"><b>On boot</b><i>→</i><b>Unlock with PIN</b><i>→</i><b>Poll queue</b><i>→</i><b>Process payment</b><i>→</i><b>Reboot every 2h</b></div>
-      <ul>
-        <li>Six tasks and three profiles exported as Tasker XML: queue poller, payment processing, unlock, scheduled reboot and Syncthing launch.</li>
-        <li>Self-healing loop with a reboot flag; later replaced by the Python automation above.</li>
-      </ul>
-      <div class="chips"><span>Tasker</span><span>Android</span><span>Syncthing</span><span>Shell</span></div>
-    </article>
+    <ui-accordion-item value="queue" data-cat="bots">
+      <ui-accordion-header><h3><ui-accordion-trigger><button type="button"><span class="n">Payment Queue Automation</span><span class="d">Python drives a wallet app in BlueStacks over ADB to work a payment queue.</span><span class="y">Automation</span></button></ui-accordion-trigger></h3></ui-accordion-header>
+      <ui-accordion-panel hidden><div class="panel">
+        <p class="kind">Automation, Python, ADB. Private.</p>
+        <p>Python on Windows drives a wallet app inside BlueStacks over ADB to work through a queue of payment jobs, replacing a rooted-phone Tasker setup.</p>
+        <ol class="flow"><li>Claim job</li><li>Unlock app</li><li>Paste code</li><li>Confirm PIN</li><li>Report result</li></ol>
+        <ul>
+          <li>Runs several emulator instances in parallel; the server claims jobs with <code>FOR UPDATE SKIP LOCKED</code> so two instances never take the same job.</li>
+          <li>Reports success or releases the job on failure, so nothing is stuck.</li>
+          <li>Also includes a Telegram alert watcher that scans a reservation widget for open slots.</li>
+        </ul>
+        <p class="stack">Python, ADB, BlueStacks, REST, Telegram</p>
+      </div></ui-accordion-panel>
+    </ui-accordion-item>
 
-    <article class="card reveal" data-cat="bots">
-      <div class="top"><span class="tag">Telegram bot · IMAP · 2022 → 2023</span><span class="badge priv">private</span></div>
-      <h3>Steam Guard Code Bot</h3>
-      <p>My first bots: a Telegram command that fetches a Steam Guard login code from a shared mailbox, so the code reaches the person who needs it in seconds.</p>
-      <div class="pipe"><b>/sg command</b><i>→</i><b>Read latest email (IMAP)</b><i>→</i><b>Verify sender</b><i>→</i><b>Extract code</b><i>→</i><b>Reply in chat</b></div>
-      <ul>
-        <li>Only accepts mail from Steam's address; anything else is rejected rather than relayed.</li>
-        <li>Second version adds an allowlist of authorised chats and handles several email layouts.</li>
-        <li>Small and single-purpose, about 100 to 180 lines of Python each, and still the project that taught me bots and mail parsing.</li>
-      </ul>
-      <div class="chips"><span>Python</span><span>python-telegram-bot</span><span>IMAP</span><span>Email parsing</span></div>
-    </article>
+    <ui-accordion-item value="tasker" data-cat="bots">
+      <ui-accordion-header><h3><ui-accordion-trigger><button type="button"><span class="n">Tasker Phone Automation</span><span class="d">The first version: a spare Android phone kept working around the clock.</span><span class="y">First version</span></button></ui-accordion-trigger></h3></ui-accordion-header>
+      <ui-accordion-panel hidden><div class="panel">
+        <p class="kind">Automation, Android. Private.</p>
+        <p>The original phone-based version: a Tasker profile set that kept a spare Android device working unattended around the clock.</p>
+        <ol class="flow"><li>On boot</li><li>Unlock with PIN</li><li>Poll queue</li><li>Process payment</li><li>Reboot every 2h</li></ol>
+        <ul>
+          <li>Six tasks and three profiles exported as Tasker XML: queue poller, payment processing, unlock, scheduled reboot and Syncthing launch.</li>
+          <li>Self-healing loop with a reboot flag; later replaced by the Python automation above.</li>
+        </ul>
+        <p class="stack">Tasker, Android, Syncthing, Shell</p>
+      </div></ui-accordion-panel>
+    </ui-accordion-item>
 
-    <article class="card reveal" data-cat="web">
-      <div class="top"><span class="tag">E-commerce · 2025 → now</span><span class="badge priv">private</span></div>
-      <h3>Lucia Top-up Website</h3>
-      <p>Storefront for in-game currency: wallet balance, player-ID validation, order tracking and an admin panel.</p>
-      <div class="shots"><img loading="lazy" decoding="async" src="img/lucia-home.jpg" alt="Lucia storefront home page"><img loading="lazy" decoding="async" src="img/lucia-region.jpg" alt="Lucia MLBB region checker"></div>
-      <ul>
-        <li>Order lifecycle: pending → processing → completed / failed / refunded.</li>
-        <li>Role-protected admin area, giveaways and region checker.</li>
-        <li>Talks to the Lucia reseller API with bearer-token auth.</li>
-      </ul>
-      <div class="chips"><span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Prisma</span><span>NextAuth</span><span>Tailwind</span><span>shadcn/ui</span></div>
-    </article>
+    <ui-accordion-item value="steam" data-cat="bots">
+      <ui-accordion-header><h3><ui-accordion-trigger><button type="button"><span class="n">Steam Guard Code Bot</span><span class="d">A Telegram command that fetches a Steam Guard code from a shared mailbox.</span><span class="y">2022 to 2023</span></button></ui-accordion-trigger></h3></ui-accordion-header>
+      <ui-accordion-panel hidden><div class="panel">
+        <p class="kind">Telegram bot, IMAP. Private.</p>
+        <p>My first bots: a Telegram command that fetches a Steam Guard login code from a shared mailbox, so the code reaches the person who needs it in seconds.</p>
+        <ol class="flow"><li>/sg command</li><li>Read latest email (IMAP)</li><li>Verify sender</li><li>Extract code</li><li>Reply in chat</li></ol>
+        <ul>
+          <li>Only accepts mail from Steam's address; anything else is rejected rather than relayed.</li>
+          <li>Second version adds an allowlist of authorised chats and handles several email layouts.</li>
+          <li>Small and single-purpose, about 100 to 180 lines of Python each, and still the project that taught me bots and mail parsing.</li>
+        </ul>
+        <p class="stack">Python, python-telegram-bot, IMAP, email parsing</p>
+      </div></ui-accordion-panel>
+    </ui-accordion-item>
 
-    <article class="card reveal" data-cat="web">
-      <div class="top"><span class="tag">E-commerce · 2026</span><span class="badge priv">private</span></div>
-      <h3>Mamaslap Top-up Web</h3>
-      <p>A second branded top-up storefront: fast Next.js front-end deployed on Vercel.</p>
-      <div class="shots"><img loading="lazy" decoding="async" src="img/mamaslap-login.jpg" alt="Mamaslap TopUp sign-in screen"></div>
-      <ul>
-        <li>Branded storefront built with the same Next.js stack as Lucia.</li>
-        <li>Server-rendered pages, edge deployment, continuous delivery from Git.</li>
-      </ul>
-      <div class="chips"><span>Next.js</span><span>TypeScript</span><span>Vercel</span></div>
-    </article>
+    <ui-accordion-item value="lucia-web" data-cat="web">
+      <ui-accordion-header><h3><ui-accordion-trigger><button type="button"><span class="n">Lucia Top-up Website</span><span class="d">Storefront with a wallet, player-ID checks, order tracking and an admin panel.</span><span class="y">2025 to now</span></button></ui-accordion-trigger></h3></ui-accordion-header>
+      <ui-accordion-panel hidden><div class="panel">
+        <p class="kind">E-commerce, Next.js. Private.</p>
+        <p>Storefront for in-game currency: wallet balance, player-ID validation, order tracking and an admin panel.</p>
+        <div class="shots"><img loading="lazy" decoding="async" src="img/lucia-home.jpg" alt="Lucia storefront home page"><img loading="lazy" decoding="async" src="img/lucia-region.jpg" alt="Lucia MLBB region checker"></div>
+        <ul>
+          <li>Order lifecycle: pending, processing, then completed, failed or refunded.</li>
+          <li>Role-protected admin area, giveaways and region checker.</li>
+          <li>Talks to the Lucia reseller API with bearer-token auth.</li>
+        </ul>
+        <p class="stack">Next.js 16, React 19, TypeScript, Prisma, NextAuth, Tailwind, shadcn/ui</p>
+      </div></ui-accordion-panel>
+    </ui-accordion-item>
 
-    <article class="card reveal" data-cat="tools">
-      <div class="top"><span class="tag">Internal tool · Flask · 2025 → 2026</span><span class="badge priv">private</span></div>
-      <h3>Mamaslap Web Panel</h3>
-      <p>Reseller dashboard that maps products across suppliers and compares prices so margins stay correct.</p>
-      <ul>
-        <li>Product mapping and multi-supplier price comparison with scheduled refresh.</li>
-        <li>Admin users, Google Sheets sync, deployed on a VPS with systemd services.</li>
-      </ul>
-      <div class="chips"><span>Python</span><span>Flask</span><span>MySQL</span><span>Tailwind</span><span>gspread</span><span>systemd</span></div>
-    </article>
+    <ui-accordion-item value="mamaslap-web" data-cat="web">
+      <ui-accordion-header><h3><ui-accordion-trigger><button type="button"><span class="n">Mamaslap Top-up Web</span><span class="d">A second branded top-up storefront on Next.js, deployed on Vercel.</span><span class="y">2026</span></button></ui-accordion-trigger></h3></ui-accordion-header>
+      <ui-accordion-panel hidden><div class="panel">
+        <p class="kind">E-commerce, Next.js. Private.</p>
+        <p>A second branded top-up storefront: fast Next.js front-end deployed on Vercel.</p>
+        <div class="shots"><img loading="lazy" decoding="async" src="img/mamaslap-login.jpg" alt="Mamaslap TopUp sign-in screen"></div>
+        <ul>
+          <li>Branded storefront built with the same Next.js stack as Lucia.</li>
+          <li>Server-rendered pages, edge deployment, continuous delivery from Git.</li>
+        </ul>
+        <p class="stack">Next.js, TypeScript, Vercel</p>
+      </div></ui-accordion-panel>
+    </ui-accordion-item>
 
-    <article class="card reveal" data-cat="ai">
-      <div class="top"><span class="tag">AI · Python · 2026</span><span class="badge priv">private</span></div>
-      <h3>Blueprint Trader</h3>
-      <p>Paper-trading research and execution harness. An LLM proposes; deterministic rules decide. Not live-ready by design, with no claims of returns.</p>
-      <div class="pipe"><b>Market data + web search</b><i>→</i><b>LLM research</b><i>→</i><b>Rule-based score</b><i>→</i><b>Allocator</b><i>→</i><b>Risk gate</b><i>→</i><b>Paper orders</b></div>
-      <ul>
-        <li>Every 5 minutes: fundamentals and web search feed an LLM research step.</li>
-        <li>Rule-based scoring overrides the LLM signal, so decisions stay auditable.</li>
-        <li>Allocator, risk gate, durable journal/replay, 22-table schema, FastAPI dashboard, Alpaca paper broker.</li>
-      </ul>
-      <div class="chips"><span>Python</span><span>DeepSeek</span><span>Alpaca</span><span>SQLAlchemy</span><span>FastAPI</span><span>yfinance</span></div>
-    </article>
+    <ui-accordion-item value="mamaslap-panel" data-cat="tools">
+      <ui-accordion-header><h3><ui-accordion-trigger><button type="button"><span class="n">Mamaslap Web Panel</span><span class="d">Maps products across suppliers and compares prices so margins stay correct.</span><span class="y">2025 to 2026</span></button></ui-accordion-trigger></h3></ui-accordion-header>
+      <ui-accordion-panel hidden><div class="panel">
+        <p class="kind">Internal tool, Flask. Private.</p>
+        <p>Reseller dashboard that maps products across suppliers and compares prices so margins stay correct.</p>
+        <ul>
+          <li>Product mapping and multi-supplier price comparison with scheduled refresh.</li>
+          <li>Admin users, Google Sheets sync, deployed on a VPS with systemd services.</li>
+        </ul>
+        <p class="stack">Python, Flask, MySQL, Tailwind, gspread, systemd</p>
+      </div></ui-accordion-panel>
+    </ui-accordion-item>
 
-    <article class="card flag reveal" data-cat="web">
-      <div class="top"><span class="tag">Storefront · 2026</span><span class="badge priv">private</span></div>
-      <h3>Beauty Monster</h3>
-      <p>Anime-inspired streetwear storefront with featured drops, gallery, product pages, cart and checkout flow.</p>
-      <div class="shots three"><img loading="lazy" decoding="async" src="img/beauty-home.jpg" alt="Beauty Monster hero"><img loading="lazy" decoding="async" src="img/beauty-featured.jpg" alt="Beauty Monster featured product"><img loading="lazy" decoding="async" src="img/beauty-gallery.jpg" alt="Beauty Monster collection gallery"></div>
-      <ul>
-        <li>Svelte 5 + SvelteKit with a client-side cart store and dynamic product routes.</li>
-        <li>Sitemap for SEO, deployed on Vercel.</li>
-      </ul>
-      <div class="chips"><span>SvelteKit</span><span>Svelte 5</span><span>TypeScript</span><span>Tailwind</span><span>Vercel</span></div>
-    </article>
-  </div>
+    <ui-accordion-item value="trader" data-cat="ai">
+      <ui-accordion-header><h3><ui-accordion-trigger><button type="button"><span class="n">Blueprint Trader</span><span class="d">Paper-trading harness where an LLM proposes and deterministic rules decide.</span><span class="y">2026</span></button></ui-accordion-trigger></h3></ui-accordion-header>
+      <ui-accordion-panel hidden><div class="panel">
+        <p class="kind">AI, Python. Private.</p>
+        <p>Paper-trading research and execution harness. An LLM proposes; deterministic rules decide. Not live-ready by design, with no claims of returns.</p>
+        <ol class="flow"><li>Market data and web search</li><li>LLM research</li><li>Rule-based score</li><li>Allocator</li><li>Risk gate</li><li>Paper orders</li></ol>
+        <ul>
+          <li>Every 5 minutes: fundamentals and web search feed an LLM research step.</li>
+          <li>Rule-based scoring overrides the LLM signal, so decisions stay auditable.</li>
+          <li>Allocator, risk gate, durable journal and replay, 22-table schema, FastAPI dashboard, Alpaca paper broker.</li>
+        </ul>
+        <p class="stack">Python, DeepSeek, Alpaca, SQLAlchemy, FastAPI, yfinance</p>
+      </div></ui-accordion-panel>
+    </ui-accordion-item>
+
+    <ui-accordion-item value="beauty" data-cat="web">
+      <ui-accordion-header><h3><ui-accordion-trigger><button type="button"><span class="n">Beauty Monster</span><span class="d">Anime-inspired streetwear storefront with a cart and checkout flow.</span><span class="y">2026</span></button></ui-accordion-trigger></h3></ui-accordion-header>
+      <ui-accordion-panel hidden><div class="panel">
+        <p class="kind">Storefront, SvelteKit. Private.</p>
+        <p>Anime-inspired streetwear storefront with featured drops, gallery, product pages, cart and checkout flow.</p>
+        <div class="shots three"><img loading="lazy" decoding="async" src="img/beauty-home.jpg" alt="Beauty Monster hero"><img loading="lazy" decoding="async" src="img/beauty-featured.jpg" alt="Beauty Monster featured product"><img loading="lazy" decoding="async" src="img/beauty-gallery.jpg" alt="Beauty Monster collection gallery"></div>
+        <ul>
+          <li>Svelte 5 + SvelteKit with a client-side cart store and dynamic product routes.</li>
+          <li>Sitemap for SEO, deployed on Vercel.</li>
+        </ul>
+        <p class="stack">SvelteKit, Svelte 5, TypeScript, Tailwind, Vercel</p>
+      </div></ui-accordion-panel>
+    </ui-accordion-item>
+
+  </ui-accordion>
 </div></section>
 
 <section id="system"><div class="wrap">
-  <h2>How the pieces fit</h2>
+  <h2 class="big">How the pieces fit</h2>
   <p class="sub">The Lucia stack: one reseller API, several front-ends, background workers for slow work.</p>
-  <div class="arch reveal">
+  <div class="arch">
     <svg viewBox="0 0 760 250" role="img" aria-label="Diagram: Telegram bot and Next.js storefront both call a Flask reseller API, which writes to MySQL and enqueues jobs in Redis for workers and the scheduler.">
-      <rect x="20" y="30" width="170" height="54" rx="8"/><text x="105" y="55" text-anchor="middle">Telegram bot</text><text class="m" x="105" y="72" text-anchor="middle">python-telegram-bot</text>
-      <rect x="20" y="146" width="170" height="54" rx="8"/><text x="105" y="171" text-anchor="middle">Storefront</text><text class="m" x="105" y="188" text-anchor="middle">Next.js · NextAuth</text>
-      <rect class="hl" x="290" y="88" width="170" height="64" rx="8"/><text x="375" y="115" text-anchor="middle">Reseller API</text><text class="m" x="375" y="133" text-anchor="middle">Flask · uWSGI</text>
-      <rect x="570" y="30" width="170" height="54" rx="8"/><text x="655" y="55" text-anchor="middle">MySQL</text><text class="m" x="655" y="72" text-anchor="middle">orders · wallets</text>
-      <rect x="570" y="146" width="170" height="54" rx="8"/><text x="655" y="171" text-anchor="middle">Redis · RQ</text><text class="m" x="655" y="188" text-anchor="middle">workers + scheduler</text>
+      <rect x="20" y="30" width="170" height="54" rx="6"/><text x="105" y="55" text-anchor="middle">Telegram bot</text><text class="m" x="105" y="72" text-anchor="middle">python-telegram-bot</text>
+      <rect x="20" y="146" width="170" height="54" rx="6"/><text x="105" y="171" text-anchor="middle">Storefront</text><text class="m" x="105" y="188" text-anchor="middle">Next.js, NextAuth</text>
+      <rect class="hl" x="290" y="88" width="170" height="64" rx="6"/><text x="375" y="115" text-anchor="middle">Reseller API</text><text class="m" x="375" y="133" text-anchor="middle">Flask, uWSGI</text>
+      <rect x="570" y="30" width="170" height="54" rx="6"/><text x="655" y="55" text-anchor="middle">MySQL</text><text class="m" x="655" y="72" text-anchor="middle">orders, wallets</text>
+      <rect x="570" y="146" width="170" height="54" rx="6"/><text x="655" y="171" text-anchor="middle">Redis and RQ</text><text class="m" x="655" y="188" text-anchor="middle">workers, scheduler</text>
       <path d="M190 57 C240 57 240 110 288 110"/><path class="ah" d="M288 106 l8 4 -8 4z"/>
       <path d="M190 173 C240 173 240 130 288 130"/><path class="ah" d="M288 126 l8 4 -8 4z"/>
       <path d="M460 110 C520 110 520 57 568 57"/><path class="ah" d="M568 53 l8 4 -8 4z"/>
@@ -328,19 +435,20 @@ ui-segmented-control-item[data-checked]{color:var(--accent-ink)}
 </div></section>
 
 <section id="skills"><div class="wrap">
-  <h2>What I work with</h2>
+  <h2 class="big">What I work with</h2>
   <p class="sub">Whole-product thinking: schema, API, UI, deployment and the boring reliability work.</p>
-  <div class="skills reveal">
+  <div class="skills">
     <div><h3>Backend</h3><p>Python, Flask, FastAPI, SQLAlchemy, MySQL, Redis queues, REST API design and documentation.</p></div>
     <div><h3>Frontend</h3><p>Next.js, React, SvelteKit, TypeScript, Tailwind, shadcn/ui, auth and forms with validation.</p></div>
-    <div><h3>Automation &amp; AI</h3><p>Telegram bots, scheduled jobs, supplier integrations, LLM pipelines guarded by deterministic rules.</p></div>
+    <div><h3>Automation and AI</h3><p>Telegram bots, scheduled jobs, supplier integrations, LLM pipelines guarded by deterministic rules.</p></div>
     <div><h3>Ops</h3><p>Vercel, VPS deployments with systemd and supervisor, Git workflow, pytest, performance tuning.</p></div>
   </div>
 </div></section>
 
 <section id="contact" class="contact"><div class="wrap">
-  <h2>Let's build something.</h2>
-  <p class="sub" style="margin-inline:auto">Open to freelance projects and full-time roles. Tell me what you're trying to automate or sell.</p>
+  <h2 class="big">Tell me what you're trying to automate or sell.</h2>
+  <p class="sub">Open to freelance projects and full-time roles.</p>
+  <a class="mail" href="mailto:khai4earth@gmail.com">khai4earth@gmail.com</a>
   <div class="cta">
     <a class="btn primary" href="mailto:khai4earth@gmail.com">Email me</a>
     <a class="btn" href="https://github.com/Iqiemon" target="_blank" rel="noopener">github.com/Iqiemon</a>
@@ -348,29 +456,58 @@ ui-segmented-control-item[data-checked]{color:var(--accent-ink)}
 </div></section>
 </main>
 
-<footer><div class="wrap">© <span id="y"></span> Iqiemon · Built by hand, hosted static.</div></footer>
+<footer><div class="wrap">© <span id="y"></span> Iqiemon. Built by hand, hosted static.</div></footer>
 
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
+
 document.querySelectorAll('.shots img').forEach(img=>{
   const d=document.createElement('ui-dialog');
   d.innerHTML='<ui-dialog-trigger><button></button></ui-dialog-trigger><ui-dialog-backdrop hidden></ui-dialog-backdrop><ui-dialog-content hidden><ui-dialog-title></ui-dialog-title><img alt=""><ui-dialog-close><button class="dclose">Close</button></ui-dialog-close></ui-dialog-content>';
   const b=d.querySelector('ui-dialog-trigger button');
   b.setAttribute('aria-label','Enlarge: '+img.alt);
   d.querySelector('ui-dialog-title').textContent=img.alt;
-  const big=d.querySelector('ui-dialog-content img');big.src=img.src;
+  d.querySelector('ui-dialog-content img').src=img.src;
   img.replaceWith(d);b.append(img);
 });
+
 const root=document.documentElement,tg=document.getElementById('theme');
-const light=()=>root.dataset.theme?root.dataset.theme==='light':matchMedia('(prefers-color-scheme: light)').matches;
+const light=()=>root.dataset.theme?root.dataset.theme==='light':!matchMedia('(prefers-color-scheme: dark)').matches;
 customElements.whenDefined('ui-toggle').then(()=>{tg.pressed=light()});
 tg.addEventListener('pressedchange',e=>{const t=e.detail.value?'light':'dark';root.dataset.theme=t;try{localStorage.setItem('theme',t)}catch{}});
+
 document.getElementById('filter').addEventListener('valuechange',e=>{
   const v=e.detail.value;
-  document.querySelectorAll('#work .card').forEach(c=>{c.hidden=v!=='all'&&!c.dataset.cat.split(' ').includes(v);c.classList.add('in')});
+  document.querySelectorAll('ui-accordion-item').forEach(i=>{i.hidden=v!=='all'&&!i.dataset.cat.split(' ').includes(v)});
 });
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const PRICE={d86:140,d172:275,d344:550};
+const pkg=document.getElementById('pkg'),qty=document.getElementById('qty'),total=document.getElementById('total');
+const money=c=>'$'+Math.floor(c/100)+'.'+String(c%100).padStart(2,'0');
+const cents=()=>PRICE[pkg.value||'d172']*(qty.value||1);
+const update=()=>{total.textContent=money(cents())};
+customElements.whenDefined('ui-select').then(update);
+pkg.addEventListener('valuechange',e=>{pkg.value=e.detail.value;update()});
+qty.addEventListener('valuechange',e=>{qty.value=e.detail.value;update()});
+qty.addEventListener('valuecommit',update);
+
+const place=document.getElementById('place'),steps=[...document.querySelectorAll('#steps li')],status=document.getElementById('status');
+let orderNo=1041;
+const names=['pending','processing','completed'];
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+place.addEventListener('click',async()=>{
+  place.disabled=true;
+  const id='#'+(++orderNo),amount=money(cents());
+  steps.forEach(s=>s.dataset.state='');
+  for(let i=0;i<steps.length;i++){
+    steps[i].dataset.state='active';
+    status.textContent='Order '+id+' '+names[i]+', '+amount;
+    await wait(matchMedia('(prefers-reduced-motion: reduce)').matches?200:1000);
+    steps[i].dataset.state='done';
+  }
+  status.textContent='Order '+id+' completed, '+amount+'. Place another to run it again.';
+  place.disabled=false;
+});
 </script>
 </body>
 </html>
