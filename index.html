@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Iqiemon — Full-stack &amp; Automation Developer</title>
 <meta name="description" content="Portfolio of Iqiemon: Telegram bots, e-commerce storefronts, reseller back-offices and an AI paper-trading research harness.">
+<meta name="theme-color" content="#0e0f12">
+<meta property="og:title" content="Iqiemon — Full-stack &amp; Automation Developer">
+<meta property="og:description" content="Telegram bots, e-commerce storefronts, reseller back-offices and an AI paper-trading research harness.">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module" src="https://ui-sdk.dev/web@0.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -34,7 +40,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:5
 .logo{font-family:var(--mono);font-size:14px;text-decoration:none;color:var(--accent)}
 nav ul{display:flex;gap:22px;list-style:none;font-size:14px;color:var(--muted)}
 nav a{text-decoration:none}nav a:hover{color:var(--text)}
-@media(max-width:560px){nav ul li:nth-child(n+3){display:none}}
+@media(max-width:560px){nav ul{gap:14px;font-size:13px}.logo{display:none}}
 
 .hero{padding:96px 0 72px}
 .eyebrow{font:500 13px var(--mono);color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
@@ -44,6 +50,7 @@ h1 em{font-style:italic;color:var(--accent);font-weight:500}
 .cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
 .btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line)}
 .btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn{transition:transform .15s}
 .btn:hover{transform:translateY(-1px)}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:56px}
 .stats div{background:var(--panel);padding:20px}
@@ -73,12 +80,12 @@ h2{font:700 clamp(28px,4vw,38px)/1.15 var(--serif);margin-bottom:8px}
 .shots{display:grid;gap:10px;grid-template-columns:1fr}
 .shots.three{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
 .shots.three img{aspect-ratio:16/10;object-fit:cover;object-position:top}
-.shots img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line);cursor:zoom-in}
+.shots ui-dialog-trigger{display:block}
+.shots button{all:unset;display:block;width:100%;cursor:zoom-in;border-radius:8px}
+.shots img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
 .pipe{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font:400 12px var(--mono)}
 .pipe b{font-weight:500;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
 .pipe i{color:var(--accent);font-style:normal}
-.lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:20px;cursor:zoom-out}
-.lb.on{display:flex}.lb img{max-width:100%;max-height:100%;border-radius:8px}
 .live:hover{text-decoration:underline}
 
 .arch{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;overflow-x:auto}
@@ -91,7 +98,7 @@ h2{font:700 clamp(28px,4vw,38px)/1.15 var(--serif);margin-bottom:8px}
 .arch .ah{fill:var(--accent);stroke:none}
 
 .skills{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.skills h4{font:500 13px var(--mono);color:var(--accent);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+.skills h3{font:500 13px var(--mono);color:var(--accent);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
 .skills p{color:var(--muted);font-size:15px}
 .contact{text-align:center}
 .contact h2{margin-bottom:14px}
@@ -100,12 +107,43 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:12px;top:-60px;background:var(--accent);color:var(--accent-ink);padding:8px 14px;border-radius:8px;z-index:100;text-decoration:none;font-weight:600}
+.skip:focus{top:10px}
+.navr{display:flex;align-items:center;gap:18px}
+ui-toggle{display:inline-block}
+.theme{all:unset;box-sizing:border-box;cursor:pointer;width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:16px;line-height:1}
+.theme:hover{color:var(--text);border-color:var(--accent)}
+.theme:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.theme::before{content:"\263E"}
+.theme[aria-pressed="true"]::before{content:"\2600"}
+.filter{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+.filter>span{font:500 12px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+ui-segmented-control{position:relative;display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:10px;background:var(--panel);isolation:isolate}
+ui-segmented-control-indicator{position:absolute;z-index:-1;top:var(--segmented-control-indicator-top);left:var(--segmented-control-indicator-left);width:var(--segmented-control-indicator-width);height:var(--segmented-control-indicator-height);background:var(--accent);border-radius:7px;transition:all .2s}
+ui-segmented-control-item{display:inline-block;padding:6px 14px;border-radius:7px;font:500 13px var(--mono);color:var(--muted);cursor:pointer;user-select:none}
+ui-segmented-control-item:hover{color:var(--text)}
+ui-segmented-control-item[data-checked]{color:var(--accent-ink)}
+.card[hidden]{display:none}
+[data-slot="dialog-backdrop"]{position:fixed;inset:0;background:rgba(0,0,0,.8);transition:opacity .2s}
+[data-slot="dialog-backdrop"]:is([data-starting-style],[data-ending-style]){opacity:0}
+[data-slot="dialog-content"]{position:fixed;inset:0;margin:auto;width:fit-content;height:fit-content;max-width:min(96vw,1200px);max-height:94vh;padding:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;gap:10px;transition:opacity .2s,scale .2s}
+[data-slot="dialog-content"]:is([data-starting-style],[data-ending-style]){opacity:0;scale:.97}
+[data-slot="dialog-title"]{font-size:13px;color:var(--muted);padding-right:90px}
+[data-slot="dialog-content"] img{max-width:100%;max-height:calc(94vh - 90px);object-fit:contain;border-radius:8px}
+.dclose{position:absolute;top:8px;right:8px;padding:5px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:500 12px var(--mono);cursor:pointer}
+@media(prefers-reduced-motion:reduce){.btn,.card,ui-segmented-control-indicator,[data-slot^="dialog"]{transition:none}.card:hover{transform:none}}
 </style>
 </head>
 <body>
-<nav><div class="wrap">
+<a class="skip" href="#top">Skip to content</a>
+<nav aria-label="Primary"><div class="wrap">
   <a class="logo" href="#top">~/iqiemon</a>
-  <ul><li><a href="#work">Work</a></li><li><a href="#system">System</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul>
+  <div class="navr">
+    <ul><li><a href="#work">Work</a></li><li><a href="#system">System</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul>
+    <ui-toggle id="theme"><button class="theme" aria-label="Light theme"></button></ui-toggle>
+  </div>
 </div></nav>
 
 <main id="top">
@@ -129,8 +167,20 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
   <h2>Selected work</h2>
   <p class="sub">Source is private because these handle customer orders and payments. I'm happy to walk through the code and architecture in an interview.</p>
 
+  <div class="filter">
+    <span id="flabel">Filter</span>
+    <ui-segmented-control id="filter" aria-labelledby="flabel" default-value="all">
+      <ui-segmented-control-indicator></ui-segmented-control-indicator>
+      <ui-segmented-control-item value="all">All</ui-segmented-control-item>
+      <ui-segmented-control-item value="bots">Bots &amp; automation</ui-segmented-control-item>
+      <ui-segmented-control-item value="web">Web</ui-segmented-control-item>
+      <ui-segmented-control-item value="tools">Internal tools</ui-segmented-control-item>
+      <ui-segmented-control-item value="ai">AI</ui-segmented-control-item>
+    </ui-segmented-control>
+  </div>
+
   <div class="grid">
-    <article class="card flag reveal">
+    <article class="card flag reveal" data-cat="bots tools">
       <div class="top"><span class="tag">Telegram bot · API · queue · 2024 → now</span><span class="badge priv">private</span></div>
       <h3>Lucia Reseller Bot</h3>
       <p>A game top-up reselling platform driven from Telegram, with a Flask API behind it so other front-ends (like the Lucia storefront below) can plug in.</p>
@@ -144,11 +194,11 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       <div class="chips"><span>Python</span><span>Flask</span><span>Redis · RQ</span><span>MySQL</span><span>Supervisor</span><span>uWSGI</span><span>pytest</span></div>
     </article>
 
-    <article class="card flag reveal">
+    <article class="card flag reveal" data-cat="tools">
       <div class="top"><span class="tag">Internal tool · vanilla JS · 2025</span><span class="badge priv">private</span></div>
       <h3>Reseller Tools Dashboard</h3>
       <p>A back-office web app for running a top-up reseller business: price lists, order tracking, player-ID checks, top-ups, invoices and sales analytics, all in one place.</p>
-      <div class="shots three"><img src="img/tools-price.jpg" alt="Reseller dashboard price list tab"><img src="img/tools-topup.jpg" alt="Reseller dashboard top-up tab"><img src="img/tools-analytics.jpg" alt="Reseller dashboard sales analytics tab"></div>
+      <div class="shots three"><img loading="lazy" decoding="async" src="img/tools-price.jpg" alt="Reseller dashboard price list tab"><img loading="lazy" decoding="async" src="img/tools-topup.jpg" alt="Reseller dashboard top-up tab"><img loading="lazy" decoding="async" src="img/tools-analytics.jpg" alt="Reseller dashboard sales analytics tab"></div>
       <ul>
         <li>Seven working tabs: Price, Track, Check, Top-up (normal and ultra-fast modes), Invoice, Analytics and Manual Orders.</li>
         <li>Sales analytics with period and game filters, order table and one-click Excel export.</li>
@@ -158,7 +208,7 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       <div class="chips"><span>JavaScript</span><span>HTML</span><span>CSS</span><span>REST API</span><span>Excel export</span></div>
     </article>
 
-    <article class="card reveal">
+    <article class="card reveal" data-cat="bots">
       <div class="top"><span class="tag">Automation · Python · ADB</span><span class="badge priv">private</span></div>
       <h3>Payment Queue Automation</h3>
       <p>Python on Windows drives a wallet app inside BlueStacks over ADB to work through a queue of payment jobs, replacing a rooted-phone Tasker setup.</p>
@@ -171,7 +221,7 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       <div class="chips"><span>Python</span><span>ADB</span><span>BlueStacks</span><span>REST</span><span>Telegram</span></div>
     </article>
 
-    <article class="card reveal">
+    <article class="card reveal" data-cat="bots">
       <div class="top"><span class="tag">Automation · Android · first version</span><span class="badge priv">private</span></div>
       <h3>Tasker Phone Automation</h3>
       <p>The original phone-based version: a Tasker profile set that kept a spare Android device working unattended around the clock.</p>
@@ -183,7 +233,7 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       <div class="chips"><span>Tasker</span><span>Android</span><span>Syncthing</span><span>Shell</span></div>
     </article>
 
-    <article class="card reveal">
+    <article class="card reveal" data-cat="bots">
       <div class="top"><span class="tag">Telegram bot · IMAP · 2022 → 2023</span><span class="badge priv">private</span></div>
       <h3>Steam Guard Code Bot</h3>
       <p>My first bots: a Telegram command that fetches a Steam Guard login code from a shared mailbox, so the code reaches the person who needs it in seconds.</p>
@@ -196,11 +246,11 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       <div class="chips"><span>Python</span><span>python-telegram-bot</span><span>IMAP</span><span>Email parsing</span></div>
     </article>
 
-    <article class="card reveal">
+    <article class="card reveal" data-cat="web">
       <div class="top"><span class="tag">E-commerce · 2025 → now</span><span class="badge priv">private</span></div>
       <h3>Lucia Top-up Website</h3>
       <p>Storefront for in-game currency: wallet balance, player-ID validation, order tracking and an admin panel.</p>
-      <div class="shots"><img src="img/lucia-home.jpg" alt="Lucia storefront home page"><img src="img/lucia-region.jpg" alt="Lucia MLBB region checker"></div>
+      <div class="shots"><img loading="lazy" decoding="async" src="img/lucia-home.jpg" alt="Lucia storefront home page"><img loading="lazy" decoding="async" src="img/lucia-region.jpg" alt="Lucia MLBB region checker"></div>
       <ul>
         <li>Order lifecycle: pending → processing → completed / failed / refunded.</li>
         <li>Role-protected admin area, giveaways and region checker.</li>
@@ -209,11 +259,11 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       <div class="chips"><span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Prisma</span><span>NextAuth</span><span>Tailwind</span><span>shadcn/ui</span></div>
     </article>
 
-    <article class="card reveal">
+    <article class="card reveal" data-cat="web">
       <div class="top"><span class="tag">E-commerce · 2026</span><span class="badge priv">private</span></div>
       <h3>Mamaslap Top-up Web</h3>
       <p>A second branded top-up storefront: fast Next.js front-end deployed on Vercel.</p>
-      <div class="shots"><img src="img/mamaslap-login.jpg" alt="Mamaslap TopUp sign-in screen"></div>
+      <div class="shots"><img loading="lazy" decoding="async" src="img/mamaslap-login.jpg" alt="Mamaslap TopUp sign-in screen"></div>
       <ul>
         <li>Branded storefront built with the same Next.js stack as Lucia.</li>
         <li>Server-rendered pages, edge deployment, continuous delivery from Git.</li>
@@ -221,7 +271,7 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       <div class="chips"><span>Next.js</span><span>TypeScript</span><span>Vercel</span></div>
     </article>
 
-    <article class="card reveal">
+    <article class="card reveal" data-cat="tools">
       <div class="top"><span class="tag">Internal tool · Flask · 2025 → 2026</span><span class="badge priv">private</span></div>
       <h3>Mamaslap Web Panel</h3>
       <p>Reseller dashboard that maps products across suppliers and compares prices so margins stay correct.</p>
@@ -232,7 +282,7 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       <div class="chips"><span>Python</span><span>Flask</span><span>MySQL</span><span>Tailwind</span><span>gspread</span><span>systemd</span></div>
     </article>
 
-    <article class="card reveal">
+    <article class="card reveal" data-cat="ai">
       <div class="top"><span class="tag">AI · Python · 2026</span><span class="badge priv">private</span></div>
       <h3>Blueprint Trader</h3>
       <p>Paper-trading research and execution harness. An LLM proposes; deterministic rules decide. Not live-ready by design, with no claims of returns.</p>
@@ -245,11 +295,11 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       <div class="chips"><span>Python</span><span>DeepSeek</span><span>Alpaca</span><span>SQLAlchemy</span><span>FastAPI</span><span>yfinance</span></div>
     </article>
 
-    <article class="card flag reveal">
+    <article class="card flag reveal" data-cat="web">
       <div class="top"><span class="tag">Storefront · 2026</span><span class="badge priv">private</span></div>
       <h3>Beauty Monster</h3>
       <p>Anime-inspired streetwear storefront with featured drops, gallery, product pages, cart and checkout flow.</p>
-      <div class="shots three"><img src="img/beauty-home.jpg" alt="Beauty Monster hero"><img src="img/beauty-featured.jpg" alt="Beauty Monster featured product"><img src="img/beauty-gallery.jpg" alt="Beauty Monster collection gallery"></div>
+      <div class="shots three"><img loading="lazy" decoding="async" src="img/beauty-home.jpg" alt="Beauty Monster hero"><img loading="lazy" decoding="async" src="img/beauty-featured.jpg" alt="Beauty Monster featured product"><img loading="lazy" decoding="async" src="img/beauty-gallery.jpg" alt="Beauty Monster collection gallery"></div>
       <ul>
         <li>Svelte 5 + SvelteKit with a client-side cart store and dynamic product routes.</li>
         <li>Sitemap for SEO, deployed on Vercel.</li>
@@ -281,10 +331,10 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
   <h2>What I work with</h2>
   <p class="sub">Whole-product thinking: schema, API, UI, deployment and the boring reliability work.</p>
   <div class="skills reveal">
-    <div><h4>Backend</h4><p>Python, Flask, FastAPI, SQLAlchemy, MySQL, Redis queues, REST API design and documentation.</p></div>
-    <div><h4>Frontend</h4><p>Next.js, React, SvelteKit, TypeScript, Tailwind, shadcn/ui, auth and forms with validation.</p></div>
-    <div><h4>Automation &amp; AI</h4><p>Telegram bots, scheduled jobs, supplier integrations, LLM pipelines guarded by deterministic rules.</p></div>
-    <div><h4>Ops</h4><p>Vercel, VPS deployments with systemd and supervisor, Git workflow, pytest, performance tuning.</p></div>
+    <div><h3>Backend</h3><p>Python, Flask, FastAPI, SQLAlchemy, MySQL, Redis queues, REST API design and documentation.</p></div>
+    <div><h3>Frontend</h3><p>Next.js, React, SvelteKit, TypeScript, Tailwind, shadcn/ui, auth and forms with validation.</p></div>
+    <div><h3>Automation &amp; AI</h3><p>Telegram bots, scheduled jobs, supplier integrations, LLM pipelines guarded by deterministic rules.</p></div>
+    <div><h3>Ops</h3><p>Vercel, VPS deployments with systemd and supervisor, Git workflow, pytest, performance tuning.</p></div>
   </div>
 </div></section>
 
@@ -299,11 +349,26 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 </main>
 
 <footer><div class="wrap">© <span id="y"></span> Iqiemon · Built by hand, hosted static.</div></footer>
-<div class="lb" id="lb"><img alt=""></div>
 
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
-const lb=document.getElementById('lb');document.querySelectorAll('.shots img').forEach(i=>i.addEventListener('click',()=>{lb.querySelector('img').src=i.src;lb.classList.add('on')}));lb.addEventListener('click',()=>lb.classList.remove('on'));addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+document.querySelectorAll('.shots img').forEach(img=>{
+  const d=document.createElement('ui-dialog');
+  d.innerHTML='<ui-dialog-trigger><button></button></ui-dialog-trigger><ui-dialog-backdrop hidden></ui-dialog-backdrop><ui-dialog-content hidden><ui-dialog-title></ui-dialog-title><img alt=""><ui-dialog-close><button class="dclose">Close</button></ui-dialog-close></ui-dialog-content>';
+  const b=d.querySelector('ui-dialog-trigger button');
+  b.setAttribute('aria-label','Enlarge: '+img.alt);
+  d.querySelector('ui-dialog-title').textContent=img.alt;
+  const big=d.querySelector('ui-dialog-content img');big.src=img.src;
+  img.replaceWith(d);b.append(img);
+});
+const root=document.documentElement,tg=document.getElementById('theme');
+const light=()=>root.dataset.theme?root.dataset.theme==='light':matchMedia('(prefers-color-scheme: light)').matches;
+customElements.whenDefined('ui-toggle').then(()=>{tg.pressed=light()});
+tg.addEventListener('pressedchange',e=>{const t=e.detail.value?'light':'dark';root.dataset.theme=t;try{localStorage.setItem('theme',t)}catch{}});
+document.getElementById('filter').addEventListener('valuechange',e=>{
+  const v=e.detail.value;
+  document.querySelectorAll('#work .card').forEach(c=>{c.hidden=v!=='all'&&!c.dataset.cat.split(' ').includes(v);c.classList.add('in')});
+});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
